@@ -1,3 +1,3 @@
-Import pybullet as p
+import pybullet as p
 pass
 
