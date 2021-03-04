@@ -18,3 +18,8 @@ class SENSOR:
 		self.values[t] = pyrosim.Get_Touch_Sensor_Value_For_Link(self.linkName)
 		if(t == 999):
 			print(self.values)
+
+
+	def Save_Values(self):
+		numpy.save('data/sensorValuesRef.npy',self.values)
+
