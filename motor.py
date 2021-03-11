@@ -27,13 +27,13 @@ class MOTOR:
 		#FrontLegTargetAngles =FrontLegAmplitude * numpy.sin(FrontLegFrequency *  numpy.linspace( -numpy.pi, numpy.pi , c.vectorLength) + FrontLegPhaseOffset)
 
 
-	def Set_Value(self,robot,t):
+	def Set_Value(self,robot,desiredAngle):
 		#Setting up Motor
 		pyrosim.Set_Motor_For_Joint(
 		bodyIndex = robot,
 		jointName = self.jointName,
 		controlMode = p.POSITION_CONTROL,
-		targetPosition =  self.motorValues[t] ,
+		targetPosition =  desiredAngle ,
 		maxForce = c.maxForce)	
 
 	def Save_Values(self):
