@@ -12,18 +12,18 @@ from sensor import SENSOR
 class MOTOR:
 	def __init__(self,jointName):
 		self.jointName = jointName
-		self.Prepare_To_Act()
+		#self.Prepare_To_Act()
 
-	def Prepare_To_Act(self):
-		self.amplitude = c.BlAmplitude
-		self.frequency = c.BlFreq
-		self.offset = c.BlOffset
-		self.motors = {}
-		if(self.jointName == "Torso_BackLeg"):
-			self.frequency = c.BlFreq/2
-		self.motorValues = self.amplitude * numpy.sin(self.frequency *  numpy.linspace( -numpy.pi, numpy.pi , c.vectorLength) + self.offset)
+	#def Prepare_To_Act(self):
+		#self.amplitude = c.BlAmplitude
+		#self.frequency = c.BlFreq
+		#self.offset = c.BlOffset
+		#self.motors = {}
+		#if(self.jointName == "Torso_BackLeg"):
+			#self.frequency = c.BlFreq/2
 		#self.motorValues = self.amplitude * numpy.sin(self.frequency *  numpy.linspace( -numpy.pi, numpy.pi , c.vectorLength) + self.offset)
-		print(self.jointName)
+		#self.motorValues = self.amplitude * numpy.sin(self.frequency *  numpy.linspace( -numpy.pi, numpy.pi , c.vectorLength) + self.offset)
+		#print(self.jointName)
 		#FrontLegTargetAngles =FrontLegAmplitude * numpy.sin(FrontLegFrequency *  numpy.linspace( -numpy.pi, numpy.pi , c.vectorLength) + FrontLegPhaseOffset)
 
 
