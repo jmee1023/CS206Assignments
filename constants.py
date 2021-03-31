@@ -20,3 +20,5 @@ vectorLength = 1000
 #MAX force
 maxForce = 100
 
+numberOfGenerations = 30
+
