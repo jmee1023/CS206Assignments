@@ -1,5 +1,5 @@
 import os
-from hillclimber import HILL_CLIMBER
+from parallelHillClimber import PARRALLEL_HILL_CLIMBER
 
 #iterations = 5
 
@@ -8,7 +8,7 @@ from hillclimber import HILL_CLIMBER
     #os.system("python3 simulate.py")
 
 
-hc = HILL_CLIMBER()
-hc.Evolve()
-hc.Show_Best()
+phc = PARRALLEL_HILL_CLIMBER()
+phc.Evolve()
+phc.Show_Best()
 

@@ -13,18 +13,18 @@ from world import WORLD
 from robot import ROBOT
 
 class SIMULATION:
-	def __init__(self,directOrGUI):
+	def __init__(self,directOrGUI,solutionID):
 
 		if(directOrGUI == "DIRECT"):
 			self.physicsClient = p.connect(p.DIRECT)
 		else:
 			self.physicsClient = p.connect(p.GUI)
 
-
+		self.directOrGUI = directOrGUI
 		p.setAdditionalSearchPath(pybullet_data.getDataPath())
 		p.setGravity(0,0,-9.8)
 		self.world = WORLD()
-		self.robot = ROBOT()
+		self.robot = ROBOT(solutionID)
 		#self.Get_Fitness()
 
 
@@ -35,11 +35,12 @@ class SIMULATION:
 			self.robot.Sense(t)
 			self.robot.Think()
 			self.robot.Act(t)
-			self.Get_Fitness()
+
+		self.Get_Fitness()
 
 
-
-			#time.sleep(1/60)
+			#if(self.directOrGUI == "GUI"):
+				#time.sleep(1/60)
 
 	def Get_Fitness(self):
 		self.robot.Get_Fitness()

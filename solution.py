@@ -3,9 +3,11 @@ import pyrosim.pyrosim as pyrosim
 import random
 import constants
 import os
+import time
 
 class SOLUTION:
-    def __init__(self):
+    def __init__(self,nextAvailableID):
+        self.myID = nextAvailableID
         self.weights = numpy.random.rand(2,3)
 
 
@@ -13,16 +15,42 @@ class SOLUTION:
         #rint(self.weights)
 
 
-    def Evaluate(self,runType):
+    # def Evaluate(self,runType):
+    #     self.Create_World()
+    #     self.Create_Body()
+    #     self.Create_Brain()
+    #
+    #     #os.system('python3 simulate.py ' + runType)
+    #     os.system("python3 simulate.py " + runType + " " + str(self.myID))
+    #     #os.system("python3 simulate.py " + runType + " 0")
+    #
+    #     f = open("fitness" + str(self.myID) + ".txt", "r")
+    #     while not os.path.exists("fitness" + str(self.myID) + ".txt"):
+    #         time.sleep(0.01)
+    #     value = f.read()
+    #     self.fitness = float(value)
+    #     print(self.fitness)
+
+    def Start_Simulation(self, runType):
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
 
-        os.system('python3 simulate.py ' + runType)
-        f = open("fitness.txt", "r")
+        os.system("python3 simulate.py " + runType + " " + str(self.myID) + " &")
+        # os.system("python3 simulate.py " + runType + " 0")
+
+    def Wait_For_Simulation_To_End(self):
+
+        while not os.path.exists("fitness" + str(self.myID) + ".txt"):
+            time.sleep(0.1)
+        f = open("fitness" + str(self.myID) + ".txt", "r")
         value = f.read()
         self.fitness = float(value)
 
+        print(self.fitness)
+
+        f.close()
+        os.system("rm fitness" + str(self.myID) + ".txt")
 
 
     def Create_World(self):
@@ -43,7 +71,7 @@ class SOLUTION:
         pyrosim.End()
 
     def Create_Brain(self):
-        pyrosim.Start_NeuralNetwork("brain.nndf")
+        pyrosim.Start_NeuralNetwork("brain" + str(self.myID) +".nndf")
 
 
         pyrosim.Send_Sensor_Neuron(name=0, linkName="Torso")
@@ -67,6 +95,10 @@ class SOLUTION:
         randomRow = random.randint(0,1)
 
         self.weights[randomRow,randomColumn] = random.random() * 2 - 1
+
+    def Set_ID(self,nextAvailableId):
+        self.myID = nextAvailableId
+
 
 
 
