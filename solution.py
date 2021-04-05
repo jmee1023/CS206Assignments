@@ -47,7 +47,7 @@ class SOLUTION:
         value = f.read()
         self.fitness = float(value)
 
-        print(self.fitness)
+        #print(self.fitness)
 
         f.close()
         os.system("rm fitness" + str(self.myID) + ".txt")
