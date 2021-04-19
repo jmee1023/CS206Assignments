@@ -59,7 +59,7 @@ class PARRALLEL_HILL_CLIMBER:
     def Select(self):
 
         for key in self.parents:
-            if(self.parents[key].fitness > self.children[key].fitness):
+            if(self.parents[key].fitness < self.children[key].fitness):
                 self.parents[key] = self.children[key]
 
 
@@ -73,21 +73,21 @@ class PARRALLEL_HILL_CLIMBER:
 
 
     def Show_Best(self):
-        lowestFitnessValue = 10
-        lowestFitnessIndex = 0
+        HighestFitnessValue = -100
+        HighestFitnessIndex = 0
 
         for key in self.parents:
-            if self.parents[key].fitness < lowestFitnessValue:
-                lowestFitnessValue = self.parents[key].fitness
-                lowestFitnessIndex = key
+            if self.parents[key].fitness > HighestFitnessValue:
+                HighestFitnessValue = self.parents[key].fitness
+                HighestFitnessIndex = key
 
 
 
-        print("LOWESTFITNESS " + str(self.parents[lowestFitnessIndex].fitness))
-        print("lowest Fitness Index " + str(lowestFitnessIndex))
+        print("LOWESTFITNESS " + str(self.parents[HighestFitnessIndex].fitness))
+        print("lowest Fitness Index " + str(HighestFitnessIndex))
 
 
-        self.parents[lowestFitnessIndex].Start_Simulation("GUI")
+        self.parents[HighestFitnessIndex].Start_Simulation("GUI")
 
 
     def Evaluate(self, solutions):
@@ -96,6 +96,8 @@ class PARRALLEL_HILL_CLIMBER:
 
 
 
+
         for j in range(len(solutions)):
             solutions[j].Wait_For_Simulation_To_End()
+
 

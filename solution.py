@@ -9,7 +9,7 @@ class SOLUTION:
     def __init__(self,nextAvailableID):
 
         self.myID = nextAvailableID
-        self.weights = numpy.random.rand(c.numMotorNuerons,c.numSensorNeurons)
+        self.weights = numpy.random.rand(c.numMotorNuerons,c.numSensorNeurons) * 2 - 1
 
 
         self.weights = self.weights * 2 -1
@@ -22,13 +22,15 @@ class SOLUTION:
         self.Create_Body()
         self.Create_Brain()
 
-        os.system("python3 simulate.py " + runType + " " + str(self.myID) + " 2&>1 &")
+        #os.system("python3 simulate.py " + runType + " " + str(self.myID) + " 2&>1 &")
+        os.system("python3 simulate.py " + runType + " " + str(self.myID) + " &")
+
         # os.system("python3 simulate.py " + runType + " 0")
 
     def Wait_For_Simulation_To_End(self):
 
         while not os.path.exists("fitness" + str(self.myID) + ".txt"):
-            time.sleep(0.1)
+            time.sleep(0.2)
         f = open("fitness" + str(self.myID) + ".txt", "r")
         value = f.read()
         self.fitness = float(value)

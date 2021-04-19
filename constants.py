@@ -20,7 +20,7 @@ vectorLength = 1000
 #MAX force
 maxForce = 100
 
-numberOfGenerations = 15
+numberOfGenerations = 10
 
 populationSize = 10
 
