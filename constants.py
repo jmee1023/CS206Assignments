@@ -20,7 +20,12 @@ vectorLength = 1000
 #MAX force
 maxForce = 100
 
-numberOfGenerations = 10
+numberOfGenerations = 15
 
 populationSize = 10
+
+numSensorNeurons = 9
+numMotorNuerons = 8
+
+motorJointRange = 0.2
 
