@@ -16,16 +16,16 @@ FlFreq = 10
 FlOffset = 1
 
 #Initialize Vectors
-vectorLength = 1000
+vectorLength = 1500
 #MAX force
-maxForce = 100
+maxForce = 90
 
 numberOfGenerations = 15
 
-populationSize = 10
+populationSize = 15
 
 numSensorNeurons = 9
 numMotorNuerons = 8
 
-motorJointRange = 0.2
+motorJointRange = 0.25
 

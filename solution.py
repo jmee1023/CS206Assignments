@@ -41,7 +41,16 @@ class SOLUTION:
 
     def Create_World(self):
             pyrosim.Start_SDF("world.sdf")
-            pyrosim.Send_Cube(name="Box", pos=[10, 0, .5], size=[length, width, height])
+            pyrosim.Send_Cube(name="Box", pos=[-2, 1, .5], size=[1.7, .7, .2])
+            pyrosim.Send_Cube(name="Box1", pos=[-2, 3, .5], size=[1.7, .7, .2])
+            pyrosim.Send_Cube(name="Box2", pos=[-2, 5, .5], size=[1.7, .7, .2])
+            pyrosim.Send_Cube(name="Box3", pos=[-2, -1, .5], size=[1.7, .7, .2])
+            pyrosim.Send_Cube(name="Box4", pos=[-2, -3, .5], size=[1.7, .7, .2])
+
+
+
+
+
             pyrosim.End()
 
     # def Create_Robot():
