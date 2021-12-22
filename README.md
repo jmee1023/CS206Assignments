@@ -1,1 +1,1 @@
-# CS206Assignments
+For this project I designed a 4 legged robot(Quadruped) to perform different tasks. The robot utilizes embedded sensors and synapses to assess its current environment and determine its next move. The Robot utilizes a neural network to take in the data from its environment and output desired movement based on that data. After completing a number of simulations, I explored different searching techniques (hill climber, parallel hill climbing etc), as well as robot designs (Number of legs, weight of torso, etc) optimize the behavior of the robot. 
